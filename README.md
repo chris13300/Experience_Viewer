@@ -1,4 +1,4 @@
-# Experience_Viewer
+# Experience Viewer
 Tool to edit "eman-like" EXP file
 
 Prerequisites :<br>
