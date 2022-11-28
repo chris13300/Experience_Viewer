@@ -1008,96 +1008,93 @@ Public Class frmPrincipale
     End Sub
 
     Private Sub lblRang1_DoubleClick(sender As Object, e As EventArgs) Handles lblRang1.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup1.Text, lblScore1.Text, lblVisite1.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup1.Text)
     End Sub
 
     Private Sub lblRang2_DoubleClick(sender As Object, e As EventArgs) Handles lblRang2.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup2.Text, lblScore2.Text, lblVisite2.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup2.Text)
     End Sub
 
     Private Sub lblRang3_DoubleClick(sender As Object, e As EventArgs) Handles lblRang3.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup3.Text, lblScore3.Text, lblVisite3.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup3.Text)
     End Sub
 
     Private Sub lblRang4_DoubleClick(sender As Object, e As EventArgs) Handles lblRang4.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup4.Text, lblScore4.Text, lblVisite4.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup4.Text)
     End Sub
 
     Private Sub lblRang5_DoubleClick(sender As Object, e As EventArgs) Handles lblRang5.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup5.Text, lblScore5.Text, lblVisite5.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup5.Text)
     End Sub
 
     Private Sub lblRang6_DoubleClick(sender As Object, e As EventArgs) Handles lblRang6.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup6.Text, lblScore6.Text, lblVisite6.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup6.Text)
     End Sub
 
     Private Sub lblRang7_DoubleClick(sender As Object, e As EventArgs) Handles lblRang7.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup7.Text, lblScore7.Text, lblVisite7.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup7.Text)
     End Sub
 
     Private Sub lblRang8_DoubleClick(sender As Object, e As EventArgs) Handles lblRang8.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup8.Text, lblScore8.Text, lblVisite8.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup8.Text)
     End Sub
 
     Private Sub lblRang9_DoubleClick(sender As Object, e As EventArgs) Handles lblRang9.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup9.Text, lblScore9.Text, lblVisite9.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup9.Text)
     End Sub
 
     Private Sub lblRang10_DoubleClick(sender As Object, e As EventArgs) Handles lblRang10.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup10.Text, lblScore10.Text, lblVisite10.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup10.Text)
     End Sub
 
     Private Sub lblRang11_DoubleClick(sender As Object, e As EventArgs) Handles lblRang11.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup11.Text, lblScore11.Text, lblVisite11.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup11.Text)
     End Sub
 
     Private Sub lblRang12_DoubleClick(sender As Object, e As EventArgs) Handles lblRang12.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup12.Text, lblScore12.Text, lblVisite12.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup12.Text)
     End Sub
 
     Private Sub lblRang13_DoubleClick(sender As Object, e As EventArgs) Handles lblRang13.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup13.Text, lblScore13.Text, lblVisite13.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup13.Text)
     End Sub
 
     Private Sub lblRang14_DoubleClick(sender As Object, e As EventArgs) Handles lblRang14.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup14.Text, lblScore14.Text, lblVisite14.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup14.Text)
     End Sub
 
     Private Sub lblRang15_DoubleClick(sender As Object, e As EventArgs) Handles lblRang15.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup15.Text, lblScore15.Text, lblVisite15.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup15.Text)
     End Sub
 
     Private Sub lblRang16_DoubleClick(sender As Object, e As EventArgs) Handles lblRang16.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup16.Text, lblScore16.Text, lblVisite16.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup16.Text)
     End Sub
 
     Private Sub lblRang17_DoubleClick(sender As Object, e As EventArgs) Handles lblRang17.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup17.Text, lblScore17.Text, lblVisite17.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup17.Text)
     End Sub
 
     Private Sub lblRang18_DoubleClick(sender As Object, e As EventArgs) Handles lblRang18.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup18.Text, lblScore18.Text, lblVisite18.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup18.Text)
     End Sub
 
     Private Sub lblRang19_DoubleClick(sender As Object, e As EventArgs) Handles lblRang19.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup19.Text, lblScore19.Text, lblVisite19.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup19.Text)
     End Sub
 
     Private Sub lblRang20_DoubleClick(sender As Object, e As EventArgs) Handles lblRang20.DoubleClick
-        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup20.Text, lblScore20.Text, lblVisite20.Text)
+        supCoup(entree, sortie, tabEPD(indexEPD), lblCoup20.Text)
     End Sub
 
-    Private Sub supCoup(entreeRang As System.IO.StreamWriter, sortieRang As System.IO.StreamReader, epd As String, coup As String, scoreDepth As String, visite As String)
-        Dim critereEXP(23) As Byte, i As Long, critereEXPbis(23) As Byte, profActuelle As Integer, visiteActuelle As Integer
+    Private Sub supCoup(entreeRang As System.IO.StreamWriter, sortieRang As System.IO.StreamReader, epd As String, coup As String)
+        Dim critereEXP(23) As Byte, i As Long, critereEXPbis(23) As Byte
 
         If coup = "" Then
             Exit Sub
         End If
         Cursor = Cursors.WaitCursor
         txtRecherche.Enabled = False
-
-        profActuelle = CInt(Replace(scoreDepth.Substring(scoreDepth.IndexOf("/") + 1), "}", ""))
-        visiteActuelle = CInt(Replace(visite, "x", ""))
 
         'position                coup   ?   ?    score             profondeur        visites
         '0 1  2  3  4  5  6  7   8  9   a   b    c   d   e   f     0   1   2   3     4   5   6   7
@@ -1127,27 +1124,24 @@ Public Class frmPrincipale
                                     If tabExperience(i + 5) = critereEXP(5) Then
                                         If tabExperience(i + 6) = critereEXP(6) Then
                                             If tabExperience(i + 7) = critereEXP(7) Then
-                                                'profondeur ou visite
-                                                If tabExperience(i + 16) = profActuelle And tabExperience(i + 20) = visiteActuelle Then
-                                                    'coup
-                                                    If (tabExperience(i + 8) = critereEXP(8) And tabExperience(i + 9) = critereEXP(9)) _
-                                                    Or (tabExperience(i + 8) = critereEXPbis(8) And tabExperience(i + 9) = critereEXPbis(9)) Then
-                                                        'pour effacer ce coup,
-                                                        If i >= 24 Then
-                                                            'on l'écrase avec les données de celui d'avant
-                                                            For j = 0 To 23
-                                                                tabExperience(i + j) = tabExperience(i - 24 + j)
-                                                            Next
-                                                        Else
-                                                            'ou celui d'après
-                                                            For j = 0 To 23
-                                                                tabExperience(i + j) = tabExperience(i + 24 + j)
-                                                            Next
-                                                        End If
-                                                        My.Computer.FileSystem.WriteAllBytes(lblExperience.Text, tabExperience, False)
-                                                        'dans tous les cas on sort ! (Sinon si le fichier n'était pas défragmenté, ça peut boucler très très longtemps)
-                                                        Exit For
+                                                'coup
+                                                If (tabExperience(i + 8) = critereEXP(8) And tabExperience(i + 9) = critereEXP(9)) _
+                                                Or (tabExperience(i + 8) = critereEXPbis(8) And tabExperience(i + 9) = critereEXPbis(9)) Then
+                                                    'pour effacer ce coup,
+                                                    If i >= 24 Then
+                                                        'on l'écrase avec les données de celui d'avant
+                                                        For j = 0 To 23
+                                                            tabExperience(i + j) = tabExperience(i - 24 + j)
+                                                        Next
+                                                    Else
+                                                        'ou celui d'après
+                                                        For j = 0 To 23
+                                                            tabExperience(i + j) = tabExperience(i + 24 + j)
+                                                        Next
                                                     End If
+                                                    My.Computer.FileSystem.WriteAllBytes(lblExperience.Text, tabExperience, False)
+                                                    'dans tous les cas on sort ! (Sinon si le fichier n'était pas défragmenté, ça peut boucler très très longtemps)
+                                                    Exit For
                                                 End If
                                             End If
                                         End If
