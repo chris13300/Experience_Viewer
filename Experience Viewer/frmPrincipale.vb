@@ -808,6 +808,7 @@ Public Class frmPrincipale
     Private Sub analysePosition()
         Dim chaine As String, chaineInfo As String, liste As String, tabChaine() As String
         Dim prof As Integer, position As String, tabTmp() As String
+        Dim entryStored As Boolean, tabEXP(0) As Byte, scoreCP As Integer
 
         If cmdStop.Visible Then
             position = tabEPD(indexEPD)
@@ -919,14 +920,52 @@ Public Class frmPrincipale
                         End While
                     End If
                 Next
+                entryStored = False
                 entree.WriteLine("ucinewgame")
 
                 entree.WriteLine("isready")
                 chaine = ""
                 While InStr(chaine, "readyok") = 0
                     chaine = sortie.ReadLine
+                    If InStr(chaine, "Saved", CompareMethod.Text) > 0 And InStr(chaine, "entries", CompareMethod.Text) > 0 Then
+                        entryStored = True
+                    End If
                     Threading.Thread.Sleep(1)
                 End While
+
+                If Not entryStored Then
+                    'obtenir la position fen puis voir plainToEXP pour la structure d'une entrée dans fichierEXP
+                    If InStr(moteur_court, "eman 6", CompareMethod.Text) > 0 Then
+                        ReDim tabEXP(31)
+                    ElseIf InStr(moteur_court, "eman 7", CompareMethod.Text) > 0 Or InStr(moteur_court, "eman 8", CompareMethod.Text) > 0 _
+                        Or InStr(moteur_court, "hypnos", CompareMethod.Text) > 0 Or InStr(moteur_court, "stockfishmz", CompareMethod.Text) > 0 _
+                        Or InStr(moteur_court, "aurora", CompareMethod.Text) > 0 Then
+                        ReDim tabEXP(23)
+                    End If
+
+                    'a1b1 {1.59/22 2} => a1b1
+                    coup1 = Trim(chaineInfo.Substring(0, chaineInfo.IndexOf(" ")))
+
+                    'a1b1 {1.59/22 2} => 1.59/22 2}
+                    chaine = Replace(chaineInfo, coup1 & " {", "")
+                    '1.59/22 2} => 1.59
+                    chaine = chaine.Substring(0, chaine.IndexOf("/"))
+                    '1.59 => 159
+                    scoreCP = CSng(Replace(chaine, ".", ",")) * 100
+
+                    'position 2br1rk1/pp3ppp/1qpn1b2/2N5/3P4/P2BBQ2/1P3PPP/R3R1K1 w - - 0 20 => 540B1223AA5EEE2B => 2BEE5EAA23120B54
+                    'coup1 a1b1 => 0 000 000(1) 000(a) 000(1) 001(b) => 00 01 => 01 00
+                    'scoreCP 159 => 01 3E => 3E 01
+                    'D22 => 16
+
+                    'position                coup  ?  ?  score       profondeur  visites
+                    '0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f  0  1  2  3  4  5  6  7
+                    '2B EE 5E AA 23 12 0B 54 01 00 00 00 C8 01 00 00 16 00 00 00 01 00 00 00
+
+                    entreeEXP(tabEXP, position, coup1, scoreCP, 100, prof, 1, entree, sortie, moteur_court)
+
+                    My.Computer.FileSystem.WriteAllBytes(lblExperience.Text, tabEXP, True)
+                End If
 
                 prof = prof + 2
 
