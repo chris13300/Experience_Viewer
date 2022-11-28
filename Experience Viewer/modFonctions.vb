@@ -1,4 +1,4 @@
-﻿Imports System.Drawing.Imaging
+Imports System.Drawing.Imaging
 Imports System.IO
 Imports VB = Microsoft.VisualBasic
 
@@ -657,16 +657,127 @@ starting:
 
     End Sub
 
+    Public Sub entreeEXP(ByRef tabEXP() As Byte, positionEPD As String, coupUCI As String, scoreCP As Integer, facteur As Integer, prof As Integer, compteur As Integer, entreeDefrag As System.IO.StreamWriter, sortieDefrag As System.IO.StreamReader, ByRef moteur_court As String)
+        Dim compteurHEX As String
+
+        'rnbqkbnr/2pppppp/1p5B/p7/3P4/P7/1PP1PPPP/RN1QKBNR b KQkq - 1 3
+        '6078880BD90221F8
+        'F8(248) 21(33) 02(2) D9(217) 0B(11) 88(136) 78(120) 60(96)
+        ' 0       1      2     3       4      5       6       7
+        Array.Copy(epdToEXP(entreeDefrag, sortieDefrag, positionEPD), 0, tabEXP, 0, 8)
+
+        'g8h6
+        '0 000 111(8) 110(g) 101(6) 111(h)
+        '0000(0) 1111(F) 1010(A) 1111(F)
+        'AF(175) OF(15)
+        ' 8       9
+        Array.Copy(moveToEXP(coupUCI), 0, tabEXP, 8, 2)
+
+        If InStr(moteur_court, "eman 6", CompareMethod.Text) > 0 Then
+            'score cp 936
+            '450
+            scoreCP = CInt(CInt(scoreCP) * 100 / facteur)
+            'hex 0384
+            '84(132) 03(3)
+            ' a       b
+            Array.Copy(scoreToEXP(scoreCP), 0, tabEXP, 10, 2)
+
+            'depth 14
+            '0E(14)
+            ' c
+            tabEXP(12) = prof
+
+            tabEXP(13) = 0 'd
+            tabEXP(14) = 0 'e
+            tabEXP(15) = 0 'f
+
+            'count 3109
+            'hex 0C25
+            '25(37) 0C(12)
+            ' 0      1
+            compteurHEX = Hex(compteur)
+            compteurHEX = StrDup(4 - Len(compteurHEX), "0") & compteurHEX
+            Array.Copy(inverseurHEX(compteurHEX, 2), 0, tabEXP, 16, 2)
+
+            tabEXP(18) = 0 '2
+            tabEXP(19) = 0 '3
+
+            '??? N/A
+            tabEXP(20) = 0 '4
+            tabEXP(21) = 128 '5
+
+            'next eval N/A
+            tabEXP(22) = 0 '6
+            tabEXP(23) = 128 '7
+
+            'next x eval N/A
+            tabEXP(24) = 0 '8
+            tabEXP(25) = 128 '9
+
+            '??? 0
+            tabEXP(26) = 0 'a
+            tabEXP(27) = 0 'b
+
+            'padding
+            tabEXP(28) = 0 'c
+            tabEXP(29) = 0 'd
+            tabEXP(30) = 0 'e
+            tabEXP(31) = 0 'f
+
+        ElseIf InStr(moteur_court, "eman 7", CompareMethod.Text) > 0 Or InStr(moteur_court, "eman 8", CompareMethod.Text) > 0 _
+            Or InStr(moteur_court, "hypnos", CompareMethod.Text) > 0 Or InStr(moteur_court, "stockfishmz", CompareMethod.Text) > 0 Or InStr(moteur_court, "aurora", CompareMethod.Text) > 0 Then
+
+            tabEXP(10) = 0 'a
+            tabEXP(11) = 0 'b
+
+            'score cp 936
+            '450
+            scoreCP = CInt(CInt(scoreCP) * 100 / facteur)
+            'hex 0384
+            '84(132) 03(3) 00(0) 00(0)
+            ' c       d     e     f
+            Array.Copy(scoreToEXP(scoreCP), 0, tabEXP, 12, 2)
+            If scoreCP > 0 Then
+                tabEXP(14) = 0 'e
+                tabEXP(15) = 0 'f
+            Else
+                tabEXP(14) = 255 'e
+                tabEXP(15) = 255 'f
+            End If
+
+            'depth 14
+            '0E(14)
+            ' 0
+            tabEXP(16) = prof
+
+            tabEXP(17) = 0 '1
+            tabEXP(18) = 0 '2
+            tabEXP(19) = 0 '3
+
+            'count 3109
+            'hex 0C25
+            '25(37) 0C(12)
+            ' 4      5    
+            compteurHEX = Hex(compteur)
+            compteurHEX = StrDup(4 - Len(compteurHEX), "0") & compteurHEX
+            Array.Copy(inverseurHEX(compteurHEX, 2), 0, tabEXP, 20, 2)
+
+            tabEXP(22) = 0 '6
+            tabEXP(23) = 0 '7
+
+        End If
+    End Sub
+
     Public Function epdToEXP(entreeDefrag As System.IO.StreamWriter, sortieDefrag As System.IO.StreamReader, Optional startpos As String = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") As Byte()
         Dim key As String
 
-        entreedefrag.WriteLine("position fen " & startpos)
+        entreeDefrag.WriteLine("position fen " & startpos)
 
-        entreedefrag.WriteLine("d")
+        entreeDefrag.WriteLine("d")
 
         key = ""
         While InStr(key, "Key: ", CompareMethod.Text) = 0
-            key = sortiedefrag.ReadLine
+            key = sortieDefrag.ReadLine
         End While
 
         key = Replace(key, "Key: ", "")
@@ -1224,6 +1335,20 @@ starting:
         End If
 
     End Sub
+
+    Public Function scoreToEXP(eval As Integer) As Byte()
+        Dim tab(1) As Byte, scoreHEX As String
+
+        scoreHEX = ""
+        If eval > 0 Then
+            scoreHEX = Hex(eval * 2)
+        Else
+            scoreHEX = Hex(eval * 2 + 65535)
+        End If
+        scoreHEX = StrDup(4 - Len(scoreHEX), "0") & scoreHEX
+
+        Return inverseurHEX(scoreHEX, 2)
+    End Function
 
     Public Function trierChaine(serie As String, separateur As String, Optional ordre As Boolean = True) As String
         Dim tabChaine() As String
