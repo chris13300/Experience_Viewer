@@ -933,7 +933,7 @@ Public Class frmPrincipale
                     Threading.Thread.Sleep(1)
                 End While
 
-                If Not entryStored Then
+                If Not entryStored And chaineInfo <> "" Then
                     'obtenir la position fen puis voir plainToEXP pour la structure d'une entrée dans fichierEXP
                     If InStr(moteur_court, "eman 6", CompareMethod.Text) > 0 Then
                         ReDim tabEXP(31)
